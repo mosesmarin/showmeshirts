@@ -1,0 +1,22 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: 'set Brand, color, max price, min price'
+Resources:
+  setParameter:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python2.7
+      CodeUri: .
+      Description: 'set Brand, color, max price, min price'
+      MemorySize: 128
+      Timeout: 6
+      Role: 'arn:aws:iam::707614736550:role/lambda-exec-role-for-lex-get-started'
+      Environment:
+        Variables:
+          db_name: macys_shirts
+          db_user: some_user
+          db_collection_list: 'macys,nordstrom,palacio,decathlon,zalando'
+          db_url: 'ds147789.mlab.com:47789'
+          db_pass: some_pass
+          db_collection: macys_shirts

@@ -1,0 +1,22 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Get shirts from MongoDB
+Resources:
+  getShirts:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python2.7
+      CodeUri: .
+      Description: Get shirts from MongoDB
+      MemorySize: 128
+      Timeout: 6
+      Role: 'arn:aws:iam::707614736550:role/lambda-exec-role-for-lex-get-started'
+      Environment:
+        Variables:
+          db_name: macys_shirts
+          db_user: some_user
+          db_collection_list: 'macys,nordstrom,palacio,decathlon,zalando'
+          db_url: 'ds147789.mlab.com:47789'
+          db_default_collection: macys_shirts
+          db_pass: some_pass
