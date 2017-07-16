@@ -1,0 +1,1472 @@
+{
+  "name": "ShirtBot",
+  "description": "A bot to show shirts from online stores scraped into mongodb collections",
+  "intents": [
+    {
+      "intentName": "ClearSize",
+      "intentVersion": "2"
+    },
+    {
+      "intentName": "SetStore",
+      "intentVersion": "2"
+    },
+    {
+      "intentName": "GoodBye",
+      "intentVersion": "2"
+    },
+    {
+      "intentName": "TellMePrices",
+      "intentVersion": "3"
+    },
+    {
+      "intentName": "SetColor",
+      "intentVersion": "5"
+    },
+    {
+      "intentName": "SaveShirt",
+      "intentVersion": "3"
+    },
+    {
+      "intentName": "GreetingA",
+      "intentVersion": "11"
+    },
+    {
+      "intentName": "RemoveFromMyList",
+      "intentVersion": "4"
+    },
+    {
+      "intentName": "ShowMeMostExpensive",
+      "intentVersion": "5"
+    },
+    {
+      "intentName": "ClearPrice",
+      "intentVersion": "2"
+    },
+    {
+      "intentName": "ShowMeAnother",
+      "intentVersion": "10"
+    },
+    {
+      "intentName": "TellMeHowMany",
+      "intentVersion": "5"
+    },
+    {
+      "intentName": "ShowMeLeastExpensive",
+      "intentVersion": "4"
+    },
+    {
+      "intentName": "SaveMyList",
+      "intentVersion": "2"
+    },
+    {
+      "intentName": "ClearBrand",
+      "intentVersion": "2"
+    },
+    {
+      "intentName": "HelpCommands",
+      "intentVersion": "2"
+    },
+    {
+      "intentName": "ThankYou",
+      "intentVersion": "1"
+    },
+    {
+      "intentName": "ShowFilters",
+      "intentVersion": "3"
+    },
+    {
+      "intentName": "TellMeStores",
+      "intentVersion": "1"
+    },
+    {
+      "intentName": "SetPrice",
+      "intentVersion": "4"
+    },
+    {
+      "intentName": "setBrand",
+      "intentVersion": "4"
+    },
+    {
+      "intentName": "TellMeBrands",
+      "intentVersion": "6"
+    },
+    {
+      "intentName": "ClearAll",
+      "intentVersion": "2"
+    },
+    {
+      "intentName": "GetShirtInfo",
+      "intentVersion": "70"
+    },
+    {
+      "intentName": "ShowSavedShirts",
+      "intentVersion": "4"
+    },
+    {
+      "intentName": "TellMeColors",
+      "intentVersion": "7"
+    },
+    {
+      "intentName": "LoadMyList",
+      "intentVersion": "2"
+    },
+    {
+      "intentName": "TellMeSizes",
+      "intentVersion": "3"
+    },
+    {
+      "intentName": "SetSize",
+      "intentVersion": "2"
+    },
+    {
+      "intentName": "ClearColor",
+      "intentVersion": "4"
+    },
+    {
+      "intentName": "HowBigMyList",
+      "intentVersion": "3"
+    }
+  ],
+  "clarificationPrompt": {
+    "messages": [
+      {
+        "contentType": "PlainText",
+        "content": "Sorry, can you please repeat that?"
+      }
+    ],
+    "maxAttempts": 5,
+    "responseCard": null
+  },
+  "abortStatement": {
+    "messages": [
+      {
+        "contentType": "PlainText",
+        "content": "Sorry, I could not understand my friend. Goodbye."
+      }
+    ],
+    "responseCard": null
+  },
+  "status": "READY",
+  "failureReason": null,
+  "lastUpdatedDate": "2017-07-16T17:24:56.163Z",
+  "createdDate": "2017-07-16T17:24:31.570Z",
+  "idleSessionTTLInSeconds": 300,
+  "voiceId": "0",
+  "checksum": "ac24ea7c-4dc1-4fa1-99c5-8afd7204d434",
+  "version": "82",
+  "locale": "en-US",
+  "childDirected": false,
+  "dependencies": {
+    "intents": [
+      {
+        "name": "SetStore",
+        "description": null,
+        "slots": [
+          {
+            "name": "Set_Store",
+            "description": null,
+            "slotConstraint": "Required",
+            "slotType": "AMAZON.Corporation",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "what store?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "set store",
+          "change store",
+          "change to {Set_Store}",
+          "set store {Set_Store}",
+          "change to store {Set_Store}",
+          "set store to {Set_Store}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:setParameter",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-28T15:10:58.814Z",
+        "createdDate": "2017-06-28T15:10:58.814Z",
+        "version": "2",
+        "checksum": "a7aebdba-70ad-4f9f-a427-0ea7b411d774"
+      },
+      {
+        "name": "ClearSize",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "clear size",
+          "remove size filter"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:replyGreeting",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-17T06:04:07.355Z",
+        "createdDate": "2017-06-17T06:04:07.355Z",
+        "version": "2",
+        "checksum": "5d1ac71d-f8d5-4850-b29f-112ae0b64dd9"
+      },
+      {
+        "name": "GoodBye",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "goodbye",
+          "bye"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:replyGreeting",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-15T03:21:07.097Z",
+        "createdDate": "2017-07-15T03:21:07.097Z",
+        "version": "2",
+        "checksum": "cb4c5f06-0fd8-4d9a-b76b-260420c4a4cd"
+      },
+      {
+        "name": "TellMePrices",
+        "description": null,
+        "slots": [
+          {
+            "name": "Store_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "AMAZON.Corporation",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "what store?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "tell me prices",
+          "give me prices",
+          "what prices do you have",
+          "tell me prices from {Store_Info}",
+          "give me prices from {Store_Info}",
+          "what prices do you have from {Store_Info}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getParameter",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-27T07:22:06.063Z",
+        "createdDate": "2017-06-27T07:22:06.063Z",
+        "version": "3",
+        "checksum": "0f9c236a-755c-4c26-875d-0aa986f86f7d"
+      },
+      {
+        "name": "ClearBrand",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "clear brand",
+          "remove brand filter"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:replyGreeting",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-17T06:04:07.222Z",
+        "createdDate": "2017-06-17T06:04:07.222Z",
+        "version": "2",
+        "checksum": "19246798-25b2-4599-808d-c948e5ed3055"
+      },
+      {
+        "name": "ClearPrice",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "clear price",
+          "remove price filter"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:replyGreeting",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-17T06:04:07.596Z",
+        "createdDate": "2017-06-17T06:04:07.596Z",
+        "version": "2",
+        "checksum": "9b065472-6e20-4574-a930-f4ef8199868e"
+      },
+      {
+        "name": "SetColor",
+        "description": null,
+        "slots": [
+          {
+            "name": "Set_Color",
+            "description": null,
+            "slotConstraint": "Required",
+            "slotType": "AMAZON.Color",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "what color?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "set color",
+          "filter color",
+          "set color {Set_Color}",
+          "filter color {Set_Color}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:setParameter",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-11T04:52:01.122Z",
+        "createdDate": "2017-07-11T04:52:01.122Z",
+        "version": "5",
+        "checksum": "bcb1d140-8528-48ac-b21e-11c42e20036b"
+      },
+      {
+        "name": "ShowMeMostExpensive",
+        "description": null,
+        "slots": [
+          {
+            "name": "Store_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "AMAZON.Corporation",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "what store?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "show me most expensive",
+          "show me the most expensive shirt",
+          "show me the most expensive",
+          "what's the most expensive shirt",
+          "give me the most expensive shirt",
+          "most expensive",
+          "show me most expensive from {Store_Info}",
+          "show me the most expensive shirts from {Store_Info}",
+          "show me the most expensive from {Store_Info}",
+          "what's the most expensive shirts from {Store_Info}",
+          "give me the most expensive shirts from {Store_Info}",
+          "most expensive from {Store_Info}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getShirts",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-11T04:32:32.028Z",
+        "createdDate": "2017-07-11T04:32:32.028Z",
+        "version": "5",
+        "checksum": "0d58a6f1-e022-482d-b288-f306c1ce970c"
+      },
+      {
+        "name": "RemoveFromMyList",
+        "description": null,
+        "slots": [
+          {
+            "name": "Upc_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "myUpc",
+            "slotTypeVersion": "2",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What upc?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "eliminate",
+          "eliminate {Upc_Info}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:replyGreeting",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-10T01:28:50.249Z",
+        "createdDate": "2017-07-10T01:28:50.249Z",
+        "version": "4",
+        "checksum": "e3789974-fb42-408f-8410-f8371d8bc16a"
+      },
+      {
+        "name": "ShowMeAnother",
+        "description": null,
+        "slots": [
+          {
+            "name": "Color_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "AMAZON.Color",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What color of shirt?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          },
+          {
+            "name": "Store_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "AMAZON.Corporation",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What store?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 2,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "another",
+          "more",
+          "next",
+          "hit me",
+          "random"
+        ],
+        "dialogCodeHook": {
+          "uri": "arn:aws:lambda:us-east-1:707614736550:function:getParameter",
+          "messageVersion": "1.0"
+        },
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getShirts",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-11T04:53:39.356Z",
+        "createdDate": "2017-07-11T04:53:39.356Z",
+        "version": "10",
+        "checksum": "34220daa-9f18-48dc-9eb7-01e664700963"
+      },
+      {
+        "name": "TellMeHowMany",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "how many",
+          "count",
+          "how many shirts",
+          "how many in this category",
+          "how many with current filters"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getShirtCount",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-11T04:32:31.976Z",
+        "createdDate": "2017-07-11T04:32:31.976Z",
+        "version": "5",
+        "checksum": "a5bbabb1-d40f-42ee-9cda-5657dc969608"
+      },
+      {
+        "name": "ThankYou",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "thank you",
+          "thanks",
+          "thx"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:replyGreeting",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-15T01:34:44.639Z",
+        "createdDate": "2017-07-15T01:34:44.639Z",
+        "version": "1",
+        "checksum": "c588e659-c801-47e3-827d-0a18b103ce6b"
+      },
+      {
+        "name": "HelpCommands",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "help",
+          "help me"
+        ],
+        "dialogCodeHook": {
+          "uri": "arn:aws:lambda:us-east-1:707614736550:function:replyGreeting",
+          "messageVersion": "1.0"
+        },
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-04-24T03:52:15.993Z",
+        "createdDate": "2017-04-24T03:52:15.993Z",
+        "version": "2",
+        "checksum": "cf8e8012-fcc3-4b6c-8284-df28cbbb7487"
+      },
+      {
+        "name": "SaveShirt",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "nice shirt",
+          "cool shirt",
+          "I like it",
+          "nice",
+          "add it",
+          "add it to my list"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:replyGreeting",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-12T08:08:23.261Z",
+        "createdDate": "2017-07-12T08:08:23.261Z",
+        "version": "3",
+        "checksum": "757d9a18-b400-44ff-a493-781736ccc2e9"
+      },
+      {
+        "name": "GreetingA",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "hi",
+          "hello"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:replyGreeting",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-04T00:20:00.791Z",
+        "createdDate": "2017-07-04T00:20:00.791Z",
+        "version": "11",
+        "checksum": "07d77581-13c3-433c-a562-e77a07ef0984"
+      },
+      {
+        "name": "SetPrice",
+        "description": null,
+        "slots": [
+          {
+            "name": "Set_Price",
+            "description": null,
+            "slotConstraint": "Required",
+            "slotType": "myFloat",
+            "slotTypeVersion": "1",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What price?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"buttons\":[]}]}"
+            },
+            "priority": 2,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "set price",
+          "filter price",
+          "set price {Set_Price}",
+          "filter price {Set_Price}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:setParameter",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-17T04:43:39.349Z",
+        "createdDate": "2017-06-17T04:43:39.349Z",
+        "version": "4",
+        "checksum": "cb286483-d1a7-4397-a9c2-b2e89dc565e8"
+      },
+      {
+        "name": "setBrand",
+        "description": null,
+        "slots": [
+          {
+            "name": "Set_Brand",
+            "description": null,
+            "slotConstraint": "Required",
+            "slotType": "AMAZON.Corporation",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What brand?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 3,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "set brand",
+          "filter brand",
+          "set brand {Set_Brand}",
+          "filter brand {Set_Brand}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:setParameter",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-17T04:43:39.391Z",
+        "createdDate": "2017-06-17T04:43:39.391Z",
+        "version": "4",
+        "checksum": "271a2350-a5a9-483e-a861-d9203a7b11a1"
+      },
+      {
+        "name": "ShowMeLeastExpensive",
+        "description": null,
+        "slots": [
+          {
+            "name": "Store_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "AMAZON.Corporation",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What store?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "show me least expensive from {Store_Info}",
+          "show me least expensive",
+          "least expensive",
+          "what's the least expensive shirt",
+          "give me the least expensive",
+          "show me the least expensive shirt",
+          "show me the least expensive from {Store_Info}",
+          "least expensive from {Store_Info}",
+          "what's the least expensive shirt from {Store_Info}",
+          "give me the least expensive from {Store_Info}",
+          "show me the least expensive shirt from {Store_Info}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getShirts",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-11T04:32:31.885Z",
+        "createdDate": "2017-07-11T04:32:31.885Z",
+        "version": "4",
+        "checksum": "8b9de0f3-4287-47d1-b577-7c2e22139693"
+      },
+      {
+        "name": "ShowSavedShirts",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "what are the shirts on my list",
+          "what shirts have i liked",
+          "what's on my list",
+          "let's see my list",
+          "my list is"
+        ],
+        "dialogCodeHook": {
+          "uri": "arn:aws:lambda:us-east-1:707614736550:function:getParameter",
+          "messageVersion": "1.0"
+        },
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getShirts",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-08T02:13:34.498Z",
+        "createdDate": "2017-07-08T02:13:34.498Z",
+        "version": "4",
+        "checksum": "99c50690-f2f9-4fe7-983d-0b08cee920e4"
+      },
+      {
+        "name": "TellMeBrands",
+        "description": null,
+        "slots": [
+          {
+            "name": "Store_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "AMAZON.Corporation",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "what store?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "tell me your brands",
+          "tell me brands",
+          "give me brands",
+          "give me your brands",
+          "tell me brands from {Store_Info}",
+          "give me brands from {Store_Info}",
+          "what brands do you have",
+          "what brands do you have from {Store_Info}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getParameter",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-27T07:22:06.235Z",
+        "createdDate": "2017-06-27T07:22:06.235Z",
+        "version": "6",
+        "checksum": "847a7b99-83c6-419c-8118-a0d557205b69"
+      },
+      {
+        "name": "ShowFilters",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "show filters",
+          "what filters",
+          "filters",
+          "show conditions"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:replyGreeting",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-04T00:02:06.544Z",
+        "createdDate": "2017-07-04T00:02:06.544Z",
+        "version": "3",
+        "checksum": "9be6fb34-9ca6-4c1f-b25b-e2190f9ad362"
+      },
+      {
+        "name": "SaveMyList",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "save my list",
+          "keep my list",
+          "don't forget my list",
+          "save it",
+          "keep it"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getMyList",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-10T06:11:36.094Z",
+        "createdDate": "2017-07-10T06:11:36.094Z",
+        "version": "2",
+        "checksum": "542747a4-cd46-461a-a85e-57ae9d7fa7bf"
+      },
+      {
+        "name": "TellMeStores",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "tell me stores",
+          "what stores do you have",
+          "what sites do you have",
+          "give me stores",
+          "what stores do you see",
+          "what stores do you like"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getParameter",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-26T06:22:57.781Z",
+        "createdDate": "2017-06-26T06:22:57.781Z",
+        "version": "1",
+        "checksum": "50b79323-4ae3-4177-aca6-ab5bea3d2836"
+      },
+      {
+        "name": "ClearColor",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "clear color",
+          "remove color filter"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:replyGreeting",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-09T18:06:06.473Z",
+        "createdDate": "2017-07-09T18:06:06.473Z",
+        "version": "4",
+        "checksum": "87f30fac-c289-4db5-ad4b-c86253a1876a"
+      },
+      {
+        "name": "ClearAll",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "clear",
+          "clear filters",
+          "remove filters",
+          "reset"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:replyGreeting",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-17T06:04:07.540Z",
+        "createdDate": "2017-06-17T06:04:07.540Z",
+        "version": "2",
+        "checksum": "124f39ab-0472-495a-8329-215ca250f777"
+      },
+      {
+        "name": "SetSize",
+        "description": null,
+        "slots": [
+          {
+            "name": "Set_Size",
+            "description": null,
+            "slotConstraint": "Required",
+            "slotType": "AMAZON.Corporation",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What size?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "set size",
+          "filter size",
+          "set size {Set_Size}",
+          "filter size {Set_Size}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:setParameter",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-17T04:43:39.450Z",
+        "createdDate": "2017-06-17T04:43:39.450Z",
+        "version": "2",
+        "checksum": "765ec2b8-96e1-4a70-8a10-79925f4e790d"
+      },
+      {
+        "name": "TellMeColors",
+        "description": null,
+        "slots": [
+          {
+            "name": "Store_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "AMAZON.Corporation",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "what store?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "give me options",
+          "tell me colors",
+          "give me colors",
+          "what colors do you have",
+          "tell me colors from {Store_Info}",
+          "give me colors from {Store_Info}",
+          "what colors do you have from {Store_Info}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getParameter",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-27T06:53:56.627Z",
+        "createdDate": "2017-06-27T06:53:56.627Z",
+        "version": "7",
+        "checksum": "7ac4acde-eece-4062-8ed9-167076c41591"
+      },
+      {
+        "name": "TellMeSizes",
+        "description": null,
+        "slots": [
+          {
+            "name": "Store_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "AMAZON.Corporation",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "what store?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "tell me sizes",
+          "give me sizes",
+          "what sizes do you have",
+          "tell me sizes from {Store_Info}",
+          "give me sizes from {Store_Info}",
+          "what sizes do you have from {Store_Info}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getParameter",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-06-27T07:22:06.121Z",
+        "createdDate": "2017-06-27T07:22:06.121Z",
+        "version": "3",
+        "checksum": "ad26ca97-e41d-403a-b035-9394d7fd4acc"
+      },
+      {
+        "name": "LoadMyList",
+        "description": null,
+        "slots": [
+          {
+            "name": "List_Info",
+            "description": null,
+            "slotConstraint": "Required",
+            "slotType": "AMAZON.FOUR_DIGIT_NUMBER",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "what's the pin?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "load list {List_Info}",
+          "load my list",
+          "load list"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getMyList",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-09T00:12:20.799Z",
+        "createdDate": "2017-07-09T00:12:20.799Z",
+        "version": "2",
+        "checksum": "fc11f82d-282e-4bb9-a492-91a29fb3717d"
+      },
+      {
+        "name": "GetShirtInfo",
+        "description": null,
+        "slots": [
+          {
+            "name": "Expensive_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "myExpensiveMarker",
+            "slotTypeVersion": "1",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "expensive or inexpensive?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 10,
+            "sampleUtterances": [],
+            "responseCard": null
+          },
+          {
+            "name": "Color_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "AMAZON.Color",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "what color?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 2,
+            "sampleUtterances": [],
+            "responseCard": null
+          },
+          {
+            "name": "Quantifier_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "myQuantifier",
+            "slotTypeVersion": "1",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "greater than or less than?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 7,
+            "sampleUtterances": [],
+            "responseCard": null
+          },
+          {
+            "name": "Price_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "AMAZON.NUMBER",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Any top price in mind?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 1,
+            "sampleUtterances": [],
+            "responseCard": null
+          },
+          {
+            "name": "Brand_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "AMAZON.Corporation",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Any particular brand you prefer?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 3,
+            "sampleUtterances": [],
+            "responseCard": null
+          },
+          {
+            "name": "Store_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "AMAZON.Corporation",
+            "slotTypeVersion": null,
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "From any store in particular?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 4,
+            "sampleUtterances": [],
+            "responseCard": null
+          },
+          {
+            "name": "Upc_Info",
+            "description": null,
+            "slotConstraint": "Optional",
+            "slotType": "myUpc",
+            "slotTypeVersion": "2",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What upc?"
+                }
+              ],
+              "maxAttempts": 2,
+              "responseCard": null
+            },
+            "priority": 8,
+            "sampleUtterances": [],
+            "responseCard": null
+          }
+        ],
+        "sampleUtterances": [
+          "show me {Color_Info} shirts by {Brand_Info}",
+          "show me shirts",
+          "show me {Color_Info} shirts",
+          "show me {Color_Info} shirts by {Brand_Info} with price {Quantifier_Info} {Price_Info}",
+          "show me {Color_Info} shirts by {Brand_Info} with price {Quantifier_Info} {Price_Info} from {Store_Info}"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getShirts",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-11T14:48:54.017Z",
+        "createdDate": "2017-07-11T14:48:54.017Z",
+        "version": "70",
+        "checksum": "ab8bdfcc-7ce1-40be-aecc-34922c3fe6bd"
+      },
+      {
+        "name": "HowBigMyList",
+        "description": null,
+        "slots": [],
+        "sampleUtterances": [
+          "how big is my list",
+          "size of my list",
+          "what's the size of my list"
+        ],
+        "fulfillmentActivity": {
+          "type": "CodeHook",
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:707614736550:function:getShirtCount",
+            "messageVersion": "1.0"
+          }
+        },
+        "parentIntentSignature": null,
+        "lastUpdatedDate": "2017-07-08T17:08:20.335Z",
+        "createdDate": "2017-07-08T17:08:20.335Z",
+        "version": "3",
+        "checksum": "31cf883c-b733-4905-8839-08ed3c15773b"
+      }
+    ],
+    "slotTypes": [
+      {
+        "name": "myQuantifier",
+        "description": "quantifier for price",
+        "enumerationValues": [
+          {
+            "value": "less than"
+          },
+          {
+            "value": "greater than"
+          }
+        ],
+        "lastUpdatedDate": "2017-06-30T09:26:55.360Z",
+        "createdDate": "2017-06-30T09:26:55.360Z",
+        "version": "1",
+        "checksum": null
+      },
+      {
+        "name": "myExpensiveMarker",
+        "description": "indicate if expensive or inexpensive is searched",
+        "enumerationValues": [
+          {
+            "value": "inexpensive"
+          },
+          {
+            "value": "expensive"
+          }
+        ],
+        "lastUpdatedDate": "2017-07-10T15:04:02.436Z",
+        "createdDate": "2017-07-10T15:04:02.436Z",
+        "version": "1",
+        "checksum": null
+      },
+      {
+        "name": "myUpc",
+        "description": "upc holder",
+        "enumerationValues": [
+          {
+            "value": "191026146985"
+          },
+          {
+            "value": "8382448"
+          },
+          {
+            "value": "GU122O03Lschwarzhwarz"
+          },
+          {
+            "value": "L1922P004pink"
+          },
+          {
+            "value": "4440094"
+          },
+          {
+            "value": "1542193"
+          },
+          {
+            "value": "SE622O0CYoffwhiterose"
+          }
+        ],
+        "lastUpdatedDate": "2017-07-10T01:26:07.117Z",
+        "createdDate": "2017-07-10T01:26:07.117Z",
+        "version": "2",
+        "checksum": null
+      },
+      {
+        "name": "myFloat",
+        "description": "float number to be used as price",
+        "enumerationValues": [
+          {
+            "value": "80.0"
+          },
+          {
+            "value": "14.90"
+          },
+          {
+            "value": "9.98"
+          }
+        ],
+        "lastUpdatedDate": "2017-06-16T13:12:10.025Z",
+        "createdDate": "2017-06-16T13:12:10.025Z",
+        "version": "1",
+        "checksum": null
+      },
+      {
+        "name": "myUpc",
+        "description": "upc holder",
+        "enumerationValues": [
+          {
+            "value": "191026146985"
+          },
+          {
+            "value": "8382448"
+          },
+          {
+            "value": "GU122O03Lschwarzhwarz"
+          },
+          {
+            "value": "L1922P004pink"
+          },
+          {
+            "value": "4440094"
+          },
+          {
+            "value": "1542193"
+          },
+          {
+            "value": "SE622O0CYoffwhiterose"
+          }
+        ],
+        "lastUpdatedDate": "2017-07-10T01:26:07.117Z",
+        "createdDate": "2017-07-10T01:26:07.117Z",
+        "version": "2",
+        "checksum": null
+      }
+    ]
+  }
+}
